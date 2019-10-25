@@ -198,7 +198,7 @@ public struct Bitplane (int NOfBitplanes)
 		return length = val;
 	}
 	static if (NOfBitplanes <= 8) {
-		ubyte opIndex(size_t i) {
+		ubyte opIndex(size_t i) @nogc pure nothrow {
 			ubyte result;
 			for (int b ; b < NOfBitplanes ; b++){
 				result>>>=1;
@@ -206,7 +206,7 @@ public struct Bitplane (int NOfBitplanes)
 			}
 			return result;
 		}
-		ubyte opIndexAssign(ubyte val, size_t i) {
+		ubyte opIndexAssign(ubyte val, size_t i) @nogc pure nothrow {
 			for (int b ; b < NOfBitplanes ; b++){
 				src[b][i] = (val&1) == 1;
 				val>>>=1;
@@ -214,7 +214,7 @@ public struct Bitplane (int NOfBitplanes)
 			return opIndex(i);
 		}
 	} else {
-		ushort opIndex(size_t i) {
+		ushort opIndex(size_t i) @nogc pure nothrow {
 			ushort result;
 			for (int b ; b < NOfBitplanes ; b++){
 				result>>>=1;
@@ -222,7 +222,7 @@ public struct Bitplane (int NOfBitplanes)
 			}
 			return result;
 		}
-		ushort opIndexAssign(ushort val, size_t i) {
+		ushort opIndexAssign(ushort val, size_t i) @nogc pure nothrow {
 			for (int b ; b < NOfBitplanes ; b++){
 				src[b][i] = (val&1) == 1;
 				val>>>=1;

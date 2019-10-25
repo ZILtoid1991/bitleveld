@@ -59,14 +59,6 @@ T[] reinterpretAsArray (T, U)(U input) @trusted pure {
 	if (U.sizeof % T.sizeof == 0) return _reinterpretAsArray;
 	else throw new ReinterpretException("Cannot cast safely!");
 }
-/**
- * Copies the content of a string array into a static char array
- */
-void stringCpy(CR)(ref CR target, string input) {
-	for(size_t i ; i < input.length ; i++){
-		target[i] = input[i];
-	}
-}
 unittest {
 	
 	align(1) struct TestStruct {
