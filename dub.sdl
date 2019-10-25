@@ -1,0 +1,5 @@
+name "bitleveld"
+description "Bit-level utilities for D"
+authors "Laszlo Szeremi"
+copyright "Copyright © 2019, Laszlo Szeremi"
+license "Boost"
