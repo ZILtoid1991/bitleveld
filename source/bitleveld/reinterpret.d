@@ -31,7 +31,7 @@ public class ReinterpretException : Exception {
 /**
  * Safely casts one type of an array to another.
  */
-T[] reinterpretCast (T, U)(ref U[] input) @trusted pure {
+T[] reinterpretCast (T, U)(U[] input) @trusted pure {
 	T[] _reinterpretCast() @system pure {
 		return cast(T[])(cast(void[])input);
 	}
@@ -41,7 +41,7 @@ T[] reinterpretCast (T, U)(ref U[] input) @trusted pure {
 /**
  * Safely casts one type of an array to a single instance of a type.
  */
-T reinterpretGet (T, U)(ref U[] input) @trusted pure {
+T reinterpretGet (T, U)(U[] input) @trusted pure {
 	T _reinterpretGet() @system pure {
 		return (cast(T[])(cast(void[])input))[0];
 	}
